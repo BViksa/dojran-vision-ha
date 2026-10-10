@@ -1,0 +1,22 @@
+configuration:
+  gemini_api_key:
+    name: Gemini API key
+    description: Your Google Gemini API key.
+  proxy_token:
+    name: Proxy token
+    description: A strong, unique token shared with Frigate.
+  log_level:
+    name: Log level
+    description: Log verbosity (debug, info, warning or error).
+  frigate_url:
+    name: Frigate URL
+    description: Frigate API URL reachable from this app (http:// or https://).
+  notify_min_subject_confidence:
+    name: Minimum subject confidence for notifications
+    description: Notification confidence threshold. Range 0.50 to 1.00; default 0.80.
+  nuisance_min_confidence:
+    name: Minimum nuisance confidence for throttling
+    description: Nuisance confidence threshold. Range 0.80 to 1.00; default 0.90.
+  nuisance_throttle_seconds:
+    name: Nuisance throttle window (seconds)
+    description: Nuisance throttle duration in seconds. Range 60 to 1800; default 600.

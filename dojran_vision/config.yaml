@@ -1,0 +1,42 @@
+name: Dojran Vision
+description: Frigate Review analysis with Google Gemini.
+version: 0.1.0
+slug: dojran_vision
+backup: cold
+init: false
+startup: services
+ingress: true
+ingress_port: 8098
+ingress_entry: /
+panel_title: Vision
+panel_icon: mdi:eye
+panel_admin: true
+arch:
+- aarch64
+services:
+- mqtt:want
+options:
+  gemini_api_key: null
+  proxy_token: null
+  log_level: info
+  frigate_url: http://ccab4aaf-frigate:5000
+  notify_min_subject_confidence: 0.8
+  nuisance_min_confidence: 0.9
+  nuisance_throttle_seconds: 600
+schema:
+  gemini_api_key: password
+  proxy_token: password
+  log_level: list(debug|info|warning|error)
+  frigate_url: str
+  notify_min_subject_confidence: float(0.5,1.0)
+  nuisance_min_confidence: float(0.8,1.0)
+  nuisance_throttle_seconds: int(60,1800)
+map:
+- addon_config:rw
+ports:
+  8099/tcp: null
+  8098/tcp: null
+ports_description:
+  8099/tcp: Frigate API
+  8098/tcp: Web UI
+image: ghcr.io/bviksa/dojran-vision
