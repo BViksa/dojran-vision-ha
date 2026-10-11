@@ -1,6 +1,6 @@
 name: Dojran Vision
 description: Frigate Review analysis with Google Gemini.
-version: 0.1.0
+version: 0.1.1
 slug: dojran_vision
 backup: cold
 init: false
